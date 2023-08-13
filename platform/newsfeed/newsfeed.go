@@ -8,12 +8,17 @@ type Item struct {
 
 // Repo struct : Creates a list of Items from Item.
 type Repo struct {
+	// remark : when we create repo it doesn't instantiate any items inside of that list
 	Items []Item
 }
 
 // New func: returns a pointer to Repo.
 func New() *Repo {
-	return &Repo{}
+	return &Repo{
+		// we have to manually declare the items inside the constructer func, otherwise we get null because
+		// when we create repo it doesn't instantiate any items inside of that list
+		Items: []Item{},
+	}
 }
 
 // Add func: Adds an item to Items, recieves a pointer to Repo.
