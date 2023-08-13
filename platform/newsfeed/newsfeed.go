@@ -1,5 +1,14 @@
 package newsfeed
 
+// Improving the code by using interfaces for the newsfeedGet and newsfeedPost funcs
+type Getter interface {
+	GetAll() []Item
+}
+
+type Adder interface {
+	Add(item Item)
+}
+
 // Item sturcts : store the news feed items.
 type Item struct {
 	Title string `json:"title"`
