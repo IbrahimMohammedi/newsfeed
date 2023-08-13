@@ -14,7 +14,7 @@ type NewsFeedPostRequest struct {
 }
 
 // main
-func NewsFeedPost(feed *newsfeed.Repo) gin.HandlerFunc {
+func NewsFeedPost(feed newsfeed.Adder) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		// request
 		requestBody := NewsFeedPostRequest{}
@@ -34,3 +34,6 @@ func NewsFeedPost(feed *newsfeed.Repo) gin.HandlerFunc {
 		c.Status(http.StatusNoContent)
 	}
 }
+
+//After creating the Adder interface, The feed is no longer going to be a type of pointer,
+// to a repo but instead it is going to be a newsfeed.Adder .
